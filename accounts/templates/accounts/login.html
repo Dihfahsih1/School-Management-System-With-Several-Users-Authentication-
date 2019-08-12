@@ -1,0 +1,33 @@
+{% extends 'app/base_site.html' %}
+{% block title %}Log In{% endblock %}
+{% block login_active %}active{% endblock %}}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-6 col-sm-8">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Log in</h3>
+            <form method="post" novalidate>
+              {% csrf_token %}
+              {% include 'accounts/form_template.html' %}
+              <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            </form>
+          </div>
+          <div class="card-footer text-muted text-center">
+            New to Canon MSMS ? <a href="{% url 'register' %}">Sign up</a>
+          </div>
+        </div>
+        <div class="text-center py-2">
+          <small>
+            <a href="{% url 'reset-password' %}" class="text-muted">Forgot your password?</a>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+

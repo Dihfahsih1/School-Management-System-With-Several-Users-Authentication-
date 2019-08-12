@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{% block title %}Canon{% endblock %}</title>
+    {% load staticfiles %}
+    <link href="https://fonts.googleapis.com/css?family=Grenze&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+<body>
+
+<div class="wrapper ">
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <a class="navbar-brand container" href="{% url 'index' %}#">
+                <h3>Canon</h3>
+            </a>
+        </div>
+
+        <ul class="list-unstyled components">
+
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">Theme</a></li>
+
+            <li><a href="#">Language</a></li>
+
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administrator</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li><a href="#">General Setting</a></li>
+                    <li><a href="#">Manage School</a></li>
+                    <li><a href="#">Payment Setting</a></li>
+                    <li><a href="#">SMS Setting</a></li>
+                    <li><a href="#">Academic Year</a></li>
+                    <li><a href="#">User Role (ACL)</a></li>
+                    <li><a href="{% url 'user_rights' %}">Role Permission (ACL)</a></li>
+                    <li><a href="#">Manage User</a></li>
+                    <li><a href="#">Manage Super Admin</a></li>
+                    <li><a href="#">Reset User Password</a></li>
+                    <li><a href="#">Email Template</a></li>
+                    <li><a href="#">SMS Template</a></li>
+                    <li><a href="#">Activity Log</a></li>
+                    <li><a href="#">Publish Guardian Feedback</a></li>
+                    <li><a href="#">Backup Database</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#schoolSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">School</a>
+                <ul class="collapse list-unstyled" id="schoolSubmenu">
+                    <li>
+                        <a href="{% url 'addschool' %}">Add School</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Student</a>
+                <ul class="collapse list-unstyled" id="page3Submenu">
+                    <li>
+                        <a href="{% url 'viewstudents' %}">View Students</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'addstudent' %}">Admit Student</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#classSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Class</a>
+                <ul class="collapse list-unstyled" id="classSubmenu">
+                    <li>
+                        <a href="{% url 'createclassinformation' %}">Add Class</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewclassinformation' %}">View Classes</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#sectionSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Section</a>
+                <ul class="collapse list-unstyled" id="sectionSubmenu">
+                    <li>
+                        <a href="{% url 'createsectioninformation' %}">Add Section</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewsectioninformation' %}">View Sections</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#teacherSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Teacher</a>
+                <ul class="collapse list-unstyled" id="teacherSubmenu">
+                    <li>
+                        <a href="{% url 'createteacher' %}">Add Teacher</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewteachers' %}">View Teachers</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#subjectSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Subject</a>
+                <ul class="collapse list-unstyled" id="subjectSubmenu">
+                    <li>
+                        <a href="{% url 'addsubject' %}">Add Subject</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewsubjects' %}">View Subjects</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#syllabusSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Syllabus</a>
+                <ul class="collapse list-unstyled" id="syllabusSubmenu">
+                    <li>
+                        <a href="{% url 'addsyllabus' %}">Add Syllabus</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewsyllabus' %}">View Syllabuses</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Human
+                    Resource</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+
+                    <li><a href="{% url 'addhumanresource' %}">Add Human Resource</a></li>
+                    <li><a href="{% url 'viewhumanresource' %}">View H.Rs</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Assignment</a>
+                <ul class="collapse list-unstyled" id="assignmentSubmenu">
+                    <li>
+                        <a href="{% url 'addassignment' %}">Add Assignment</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewassignment' %}">View Assignment</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#routineSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Class Routine</a>
+                <ul class="collapse list-unstyled" id="routineSubmenu">
+                    <li>
+                        <a href="#">Add Routine</a>
+                    </li>
+                    <li>
+                        <a href="#">View Routine</a>
+                    </li>
+                    <li>
+                        <a href="#">Update Routine</a>
+                    </li>
+                    <li>
+                        <a href="#">Delete Routine</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#guardianSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Guardian</a>
+                <ul class="collapse list-unstyled" id="guardianSubmenu">
+                    <li>
+                        <a href="{% url 'addguardian' %}">Add Guardian</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewguardians' %}">View Guardians</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Attendance</a>
+                <ul class="collapse list-unstyled" id="page2Submenu">
+                    <li>
+                        <a href="#">Student Attendance</a>
+                    </li>
+                    <li>
+                        <a href="#">Teacher Attendance</a>
+                    </li>
+                    <li>
+                        <a href="#">Employee Attendance</a>
+                    </li>
+                    <li>
+                        <a href="#">Absent Email</a>
+                    </li>
+                    <li>
+                        <a href="#">Absent SMS</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#page1Submenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Email</a>
+                <ul class="collapse list-unstyled" id="page1Submenu">
+                    <li>
+                        <a href="{% url 'viewexamgrade' %}">Exam Grade</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewexamterm' %}">Exam Term</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="{% url 'viewexamschedule' %}">Exam Schedule</a>
+            </li>
+
+            <li>
+                <a href="{% url 'viewexamsuggestion' %}">Exam Suggestions</a>
+            </li>
+
+            <li>
+                <a href="#">Exam Attendance</a>
+            </li>
+
+            <li>
+                <a href="#LibrarySubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Attendance</a>
+                <ul class="collapse list-unstyled" id="LibrarySubmenu">
+                    <li>
+                        <a href="{% url 'viewlibrarybook' %}">View Book</a>
+                    </li>
+                    <li>
+                        <a href="#">Members</a>
+                    </li>
+                    <li>
+                        <a href="#">Issue & Return</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#TransportSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Transport</a>
+                <ul class="collapse list-unstyled" id="TransportSubmenu">
+                    <li>
+                        <a href="{% url 'viewvehicle' %}">View Vehicle</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewroute' %}">Manage Route</a>
+                    </li>
+                    <li>
+                        <a href="#">Transport Member</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#HostelSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Hostel</a>
+                <ul class="collapse list-unstyled" id="HostelSubmenu">
+                    <li>
+                        <a href="{% url 'viewhostel' %}">Manage Hostels</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewroom' %}">Manage Rooms</a>
+                    </li>
+                    <li>
+                        <a href="#">Hostel Member</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">Visitor Info</a></li>
+
+            <li>
+                <a href="#PayrollSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Payroll</a>
+                <ul class="collapse list-unstyled" id="PayrollSubmenu">
+                    <li>
+                        <a href="{% url 'viewsalarygrade' %}">Salary Grade</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewsalarygrade' %}">Salary Payment</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewsalarygrade' %}">Payment History</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#AccountingSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Accounting</a>
+                <ul class="collapse list-unstyled" id="AccountingSubmenu">
+                    <li>
+                        <a href="{% url 'viewdiscount' %}">Discount</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewfeetype' %}">Fee Type</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewfeecollection' %}">Fee Collection</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewdiscount' %}">Manage Invoice</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewdiscount' %}">Due Fee</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewdiscount' %}">Income</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewdiscount' %}">Expenditure</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#ReportSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Reports</a>
+                <ul class="collapse list-unstyled" id="ReportSubmenu">
+                    <li>
+                        <a href="#">Income Report</a>
+                    </li>
+                    <li>
+                        <a href="#">Expenditure Report</a>
+                    </li>
+                    <li>
+                        <a href="#">Fee Collections Report</a>
+                    </li>
+                    <li>
+                        <a href="#">Accounting Balance Report</a>
+                    </li>
+                    <li>
+                        <a href="#">Library Report</a>
+                    </li>
+                    <li>
+                        <a href="#">Student Attendance</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#AnnouncementSubmenu" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">Announcement</a>
+                <ul class="collapse list-unstyled" id="AnnouncementSubmenu">
+                    <li>
+                        <a href="{% url 'viewnotice' %}">Notice</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewnews' %}">News</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'viewholidays' %}">Holidays</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Promotion</a>
+            </li>
+
+            <li>
+                <a href="{% url 'viewevents' %}">Events</a>
+            </li>
+
+        </ul>
+    </nav>
+    <br>
+    <div class="container content">
+        <br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fa fa-align-justify"></i> <span>toggle sidebar</span>
+            </button>
+
+            <!--<a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">
+                            <span class="fa fa-home" aria-hidden="true"></span>&nbsp; Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_profile' %}">
+                            <span class="fa fa-user" aria-hidden="true"></span>&nbsp; View Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'edit_profile' %}">
+                            <span class="fa fa-upload" aria-hidden="true"></span>&nbsp;Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'change_password' %}">
+                            <span class="fa fa-tasks" aria-hidden="true"></span>&nbsp; Change Password</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            <span class="fa fa-eject" aria-hidden="true"></span>&nbsp; Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        {% block body %}
+
+        {% endblock %}
+
+    </div>
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>
+

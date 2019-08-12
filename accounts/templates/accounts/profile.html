@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Profile</h1>
+                        <p>Username: {{ user }}</p>
+                        <p>FirstName: {{ user.first_name }}</p>
+                        <p>LastName: {{ user.last_name }}</p>
+                        <p>Email: {{ user.email }}</p>
+                        <p>Description: {{ user.userprofile.description }}</p>
+                        <p>Phone: {{ user.userprofile.phone }}</p>
+                        <p>City: {{ user.userprofile.city }}</p>
+                        <p>website: {{ user.userprofile.website }}</p>
+                        {% if user.userprofile.image %}
+                            <img src="{{ user.userprofile.image.url }}" width="240">
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock %}

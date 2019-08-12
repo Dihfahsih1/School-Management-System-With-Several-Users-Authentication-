@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <br><h4>Manage Guardians</h4>
+        <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+
+        <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+            <i style="font-size: 15px; color:red;">Quick Links</i>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Add Guardian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Manage Guardian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guardian Activity</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="nav navbar-expand" style="float:left">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <button class="btn btn-default">List of Guardians</button>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addguardian' %}">
+                        <button class="btn btn-success">Add Guardians</button>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <br>
+        <table class="table table-hover" border="2" style="font-size:15px">
+            <thead class="table-success">
+            <tr>
+
+                <td>id</td>
+                <td>Name</td>
+                <td>Username</td>
+                <td>Gender</td>
+                <td>Religion</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Adress</td>
+                <td>DOB</td>
+                <td>Health</td>
+                <td>AdmissionNo</td>
+                <td>AdmissionDate</td>
+                <td>RegNo</td>
+                <td>Previous School</td>
+                <td>Previous Class</td>
+                <td>Image</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% if all_info %}
+                {% for item in all_info %}
+                    <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.guardian_name }}</td>
+                    <td>{{ item.guardian_username }}</td>
+                    <td>{{ item.guardian_gender }}</td>
+                    <td>{{ item.guardian_religion }}</td>
+                    <td>{{ item.guardian_email }}</td>
+                    <td>{{ item.guardian_phone }}</td>
+                    <td>{{ item.guardian_address }}</td>
+                    <td>{{ item.guardian_birth_date }}</td>
+                    <td>{{ item.guardian_health_condition }}</td>
+                    <td>{{ item.guardian_admission_no }}</td>
+                    <td>{{ item.guardian_admission_date }}</td>
+                    <td>{{ item.guardian_reg_no }}</td>
+                    <td>{{ item.guardian_previous_school }}</td>
+                    <td>{{ item.guardian_previous_class }}</td>
+                    <td><img src="{{ item.guardian_image.url }}"/></td>
+                    <td><a href="{% url 'editguardian' pk=item.id %}">Update</a>|
+                        <a href="{% url 'deleteguardian' pk=item.id %}">Delete</a>
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

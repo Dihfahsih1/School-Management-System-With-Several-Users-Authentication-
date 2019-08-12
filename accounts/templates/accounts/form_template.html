@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+
+{% for field in form %}
+    <div class="form-group row">
+        <div class="col-sm-offset-4 col-sm-8">
+            <span class="text-danger small">{{ field.errors }}</span>
+        </div>
+        <label class="control-label col-sm-5" for="student_name">{{ field.label_tag }}</label>
+        <div class="col-sm-7">{{ field }}</div>
+    </div>
+{% endfor %}

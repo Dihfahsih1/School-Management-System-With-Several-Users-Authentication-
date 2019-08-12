@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <br><h4>Manage Guardians</h4>
+        <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+            <i style="font-size: 15px; color:red;">Quick Links</i>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Add Guardian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Manage Guardian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guardian Activity</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="nav navbar-expand" >
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <button class="btn btn-default">Add Guardian</button>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewguardians' %}">
+                        <button class="btn btn-success">List of Guardians</button>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <br><br>
+        {% load crispy_forms_tags %}
+        <div class="col-lg-4">
+            <form method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <p>Guardian Basic Information</p>
+                    {{ form|crispy }}
+
+                    {% csrf_token %}
+
+                    <a href="{% url 'viewguardians' %}" >
+                        <button class="btn btn-danger">Cancel</button>
+                    </a>
+                    <button type="submit" class="btn btn-success">Add Guardian</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

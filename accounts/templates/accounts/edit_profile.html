@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Edit Profile</title>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-6 col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% include 'accounts/form_template.html' %}
+                            <button class="btn-lg btn-success" type="submit">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+{% endblock %}
+
